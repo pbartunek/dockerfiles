@@ -30,10 +30,9 @@ RUN apt-get update && apt-get install -y \
         && apt-get purge --auto-remove -y curl \
         && rm -rf /var/lib/apt/lists/*
 
-RUN groupadd -g 2001 -r chrome && useradd -r -g chrome --uid 2001 -G audio,video chrome \
+RUN groupadd -g 1000 -r chrome && useradd -r -g chrome --uid 1000 -G audio,video chrome \
     && mkdir -p /home/chrome/Downloads && chown -R chrome:chrome /home/chrome
 
 USER chrome
 
 ENTRYPOINT [ "google-chrome" ]
-CMD [ "--user-data-dir=/data" ]

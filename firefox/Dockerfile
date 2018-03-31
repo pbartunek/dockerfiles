@@ -19,7 +19,7 @@ RUN apt-get update && apt-get install -y \
 ENV LANG en-US
 
 # Add user
-RUN groupadd --gid 2001 -r browser && useradd -m --uid 2001 -r --gid 2001 -G audio,video browser \
+RUN groupadd --gid 1000 -r browser && useradd -m --uid 1000 -r --gid 1000 -G audio,video browser \
     && mkdir -p /home/browser/Downloads && chown -R browser:browser /home/browser
 
 USER browser
