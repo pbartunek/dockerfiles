@@ -6,7 +6,7 @@
 # seccomp profile:
 # wget https://raw.githubusercontent.com/jfrazelle/dotfiles/master/etc/docker/seccomp/chrome.json -O chrome.json
 #
-FROM debian:sid
+FROM debian:sid-slim
 
 RUN apt-get update && apt-get install -y \
         apt-transport-https \
