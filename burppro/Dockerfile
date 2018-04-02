@@ -11,18 +11,15 @@ RUN apt-get update && apt-get -y dist-upgrade && apt-get install -y \
   --no-install-recommends \
   && rm -rf /var/lib/apt/lists/*
 
-RUN wget 'https://portswigger.net/burp/releases/download?product=community&type=linux' -O /tmp/burp -nv && sh /tmp/burp -q && rm /tmp/burp
-RUN mkdir -p /data
+COPY files/burpsuite_pro*.sh /tmp/burp
+RUN chmod +x /tmp/burp && /tmp/burp -q && rm /tmp/burp
+RUN mkdir -p /data/projects
 
 COPY user.json /data/user.json
 COPY project.json /data/project.json
-
-RUN groupadd -g 1000 -r burp && useradd -r -g burp --uid 1000 -G audio,video burp \
-    && mkdir -p /home/burp/Downloads && chown -R burp:burp /home/burp
-
-USER burp
+COPY files/java /root/.java
 
 EXPOSE 8080
 
-ENTRYPOINT [ "/usr/local/BurpSuiteCommunity/BurpSuiteCommunity" ]
+ENTRYPOINT [ "/usr/local/BurpSuitePro/BurpSuitePro" ]
 CMD [ "--user-config-file=/data/user.json", "--config-file=/data/project.json" ]
