@@ -6,6 +6,10 @@
 # seccomp profile:
 # wget https://raw.githubusercontent.com/jfrazelle/dotfiles/master/etc/docker/seccomp/chrome.json -O chrome.json
 #
+# enable user namespaces:
+# echo 'kernel.unprivileged_userns_clone=1' > /etc/sysctl.d/00-local-userns.conf
+# service procps restart
+#
 FROM debian:sid-slim
 
 RUN apt-get update && apt-get install -y \
