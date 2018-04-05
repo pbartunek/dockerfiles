@@ -14,7 +14,7 @@ RUN apt-get update && apt-get -y dist-upgrade && apt-get install -y \
 
 COPY files/burpsuite_pro*.sh /tmp/burp
 RUN chmod +x /tmp/burp && /tmp/burp -q && rm /tmp/burp
-RUN mkdir -p /data/projects
+RUN mkdir -p /data/project
 
 COPY files/java /root/.java
 
