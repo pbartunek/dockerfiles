@@ -4,18 +4,19 @@ RUN apt-get update && \
   apt-get -y dist-upgrade && \
   apt-get -y install \
   zsh \
+  net-tools \
+  screen \
+  aptitude \
+  proxychains \
   metasploit-framework \
   nmap \
   tcpdump \
   john \
   dirb \
-  proxychains \
   masscan \
   gobuster \
   wfuzz \
-  net-tools \
-  screen \
-  aptitude \
+  sqlmap \
   --no-install-recommends \
   && rm -rf /var/lib/apt/lists/*
 
