@@ -11,6 +11,8 @@ RUN apt-get update && apt-get -y dist-upgrade && apt-get install -y \
   chromium \
   libnss3-tools \
   vim \
+  dirb \
+  sqlmap \
   --no-install-recommends \
   && rm -rf /var/lib/apt/lists/*
 
