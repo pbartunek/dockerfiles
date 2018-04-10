@@ -20,11 +20,6 @@ RUN apt-get update && apt-get -y dist-upgrade && apt-get install -y \
 COPY files/burpsuite_pro*.sh /tmp/burp
 RUN chmod +x /tmp/burp && /tmp/burp -q && rm /tmp/burp
 
-# copy burp preferences
-RUN mkdir -p /data/project
-COPY files/java /root/.java
-COPY project.json /data/project.json
-
 # import burp ca certificate
 COPY files/cacert.der /data/cacert.der
 RUN mkdir -p $HOME/.pki/nssdb && \

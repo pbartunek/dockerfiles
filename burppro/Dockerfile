@@ -16,7 +16,6 @@ RUN mkdir -p /data/project
 
 COPY user.json /data/user.json
 COPY project.json /data/project.json
-COPY files/java /root/.java
 
 EXPOSE 8080
 
