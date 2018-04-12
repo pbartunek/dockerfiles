@@ -7,6 +7,8 @@ RUN apt-get update && apt-get -y dist-upgrade && apt-get install -y \
   libxi6 \
   libgl1-mesa-dri \
   libgl1-mesa-glx \
+  libpango1.0-0 \
+  libpulse0 \
   ca-certificates \
   chromium \
   libnss3-tools \
