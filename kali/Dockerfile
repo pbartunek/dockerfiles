@@ -17,8 +17,9 @@ RUN apt-get update && \
   gobuster \
   wfuzz \
   sqlmap \
+  hashid \
   --no-install-recommends \
   && rm -rf /var/lib/apt/lists/*
 
 CMD ["zsh"]
-WORKDIR "/root"
+WORKDIR "/data"
