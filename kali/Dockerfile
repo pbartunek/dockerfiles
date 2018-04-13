@@ -5,8 +5,10 @@ RUN apt-get update && \
   apt-get -y install \
   zsh \
   net-tools \
+  ssh \
   screen \
   aptitude \
+  less \
   proxychains \
   metasploit-framework \
   netcat-traditional \
