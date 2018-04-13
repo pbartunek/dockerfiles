@@ -9,14 +9,17 @@ RUN apt-get update && \
   aptitude \
   proxychains \
   metasploit-framework \
-  nmap \
+  netcat-traditional \
   tcpdump \
-  john \
-  dirb \
+  onesixtyone \
   masscan \
+  nmap \
+  amap \
+  dirb \
   gobuster \
   wfuzz \
   sqlmap \
+  john \
   hashid \
   --no-install-recommends \
   && rm -rf /var/lib/apt/lists/*

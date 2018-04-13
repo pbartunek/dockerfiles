@@ -11,6 +11,8 @@ RUN apt-get update && apt-get -y dist-upgrade && apt-get install -y \
   libpulse0 \
   ca-certificates \
   chromium \
+  ssh \
+  net-tools \
   libnss3-tools \
   --no-install-recommends \
   && rm -rf /var/lib/apt/lists/*
