@@ -13,7 +13,6 @@ RUN apt-get update && \
   metasploit-framework \
   netcat-traditional \
   tcpdump \
-  onesixtyone \
   masscan \
   nmap \
   amap \
