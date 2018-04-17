@@ -28,7 +28,7 @@ RUN chmod +x /tmp/burp && /tmp/burp -q && rm /tmp/burp
 # switch to non uid 0 user
 RUN sed -i 's/root/toor/' /etc/passwd
 RUN groupadd -g 1000 -r webtest && \
-  useradd -m -r -g webtest -u 1000 -G audio,video root
+  useradd -d /home/webtest -m -r -g webtest -u 1000 -G audio,video root
 USER root
 
 # import burp ca certificate
