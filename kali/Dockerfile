@@ -25,5 +25,5 @@ RUN apt-get update && \
   --no-install-recommends \
   && rm -rf /var/lib/apt/lists/*
 
-CMD ["zsh"]
+ENTRYPOINT ["/bin/bash"]
 WORKDIR "/data"
