@@ -37,10 +37,10 @@ RUN mkdir -p $HOME/.pki/nssdb && \
   certutil -d $HOME/.pki/nssdb -N --empty-password && \
   certutil -d sql:$HOME/.pki/nssdb -A -t "C,," -n burp -i /data/cacert.der
 
+# create directories for mount points
 RUN mkdir -p $HOME/.java $HOME/.BurpSuite $HOME/.config/chromium
 
-EXPOSE 8080
-
-
-ENTRYPOINT [ "/bin/bash" ]
 WORKDIR "/data/"
+ENTRYPOINT [ "/data/start.sh" ]
+
+EXPOSE 8080

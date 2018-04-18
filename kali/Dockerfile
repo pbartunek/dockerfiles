@@ -12,6 +12,13 @@ RUN apt-get update && \
   proxychains \
   metasploit-framework \
   netcat-traditional \
+  socat \
+  telnet \
+  tftp \
+  whois \
+  host \
+  traceroute \
+  smbclient \
   tcpdump \
   masscan \
   nmap \
