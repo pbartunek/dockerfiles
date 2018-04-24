@@ -55,6 +55,8 @@ RenderUrlsToFile = function(urls, callbackPerUrl, callbackFinal) {
 arrayOfUrls = null;
 
 if (system.args.length > 1) {
+    var time = new Date().toLocaleTimeString();
+    console.log("Scraper started at " + time);
     arrayOfUrls = Array.prototype.slice.call(system.args, 1);
 } else {
     console.log("Usage: phantomjs scraper-phantom.js [domain.name1, domain.name2, ...]");
@@ -62,10 +64,11 @@ if (system.args.length > 1) {
 }
 
 RenderUrlsToFile(arrayOfUrls, (function(status, url, file) {
+    var time = new Date().toLocaleTimeString();
     if (status !== "success") {
-        return console.log("Unable to render '" + url + "'");
+        return console.log(time + " Unable to render " + url);
     } else {
-        return console.log("Rendered '" + url + "' at '" + file + "'");
+        return console.log(time + " Rendered " + url + ", saved as: " + file);
     }
 }), function() {
     return phantom.exit();
