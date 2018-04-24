@@ -8,8 +8,8 @@ if [ -f /data/project/project.burp ]; then
     --project-file=/data/project/project.burp &> /dev/null
 else
   BurpSuitePro \
-    --config-file=/data/project/project.json \
-    --project-file=/data/project/project.burp &> /dev/null
+    --config-file=/data/project.json \
+    --project-file=/data/project/project.burp
 fi
 
 exec "$@"

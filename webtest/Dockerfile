@@ -29,6 +29,10 @@ RUN chmod +x /tmp/burp && /tmp/burp -q && rm /tmp/burp
 RUN sed -i 's/root/toor/' /etc/passwd
 RUN groupadd -g 1000 -r webtest && \
   useradd -d /home/webtest -m -r -g webtest -u 1000 -G audio,video root
+
+# copy burp project config
+COPY project.json /data/project.json
+
 USER root
 
 # import burp ca certificate
