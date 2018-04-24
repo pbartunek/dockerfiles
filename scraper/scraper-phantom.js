@@ -29,10 +29,18 @@ RenderUrlsToFile = function(urls, callbackPerUrl, callbackFinal) {
             urlIndex++;
             page = webpage.create();
             page.viewportSize = {
-                width: 800,
-                height: 600
+                width: 1024,
+                height: 768
             };
-            page.settings.userAgent = "Phantom.js bot";
+            var time = new Date().toLocaleTimeString();
+            console.log(time + " Rendering: " + url);
+
+            page.settings.userAgent = "Phantom.js";
+            page.settings.resourceTimeout = 10000;
+            page.onResourceTimeout = function(e) {
+              var time = new Date().toLocaleTimeString();
+              console.log(time + " Timeout connecting to: " + url);
+            };
             return page.open("http://" + url, function(status) {
                 var file;
                 file = getFilename(url);
@@ -40,7 +48,7 @@ RenderUrlsToFile = function(urls, callbackPerUrl, callbackFinal) {
                     return window.setTimeout((function() {
                         page.render(file);
                         return next(status, url, file);
-                    }), 200);
+                    }), 500);
                 } else {
                     return next(status, url, file);
                 }
