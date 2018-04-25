@@ -30,6 +30,7 @@ RUN apt-get update && \
   john \
   hashid \
   --no-install-recommends \
+  && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
 ENTRYPOINT ["/bin/bash"]

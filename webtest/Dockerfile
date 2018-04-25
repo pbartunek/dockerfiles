@@ -12,6 +12,7 @@ RUN apt-get update && apt-get -y dist-upgrade && apt-get install -y \
   chromium \
   libnss3-tools \
   --no-install-recommends \
+  && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
 # copy start script
