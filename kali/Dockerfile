@@ -36,6 +36,7 @@ RUN apt-get update && \
   python-dev \
   python-pip \
   python-setuptools \
+  ldapscripts \
   unzip \
   --no-install-recommends \
   && apt-get clean \
