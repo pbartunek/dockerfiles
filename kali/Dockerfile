@@ -38,6 +38,7 @@ RUN apt-get update && \
   python-setuptools \
   ldapscripts \
   unzip \
+  vim \
   --no-install-recommends \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
