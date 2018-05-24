@@ -5,7 +5,7 @@ chromium \
 
 if [ -f /data/project/project.burp ]; then
   BurpSuitePro \
-    --project-file=/data/project/project.burp &> /dev/null
+    --project-file=/data/project/project.burp
 else
   BurpSuitePro \
     --config-file=/data/project.json \
