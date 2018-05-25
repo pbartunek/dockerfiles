@@ -39,6 +39,7 @@ RUN apt-get update && \
   ldapscripts \
   unzip \
   vim \
+  openjdk-8-jdk \
   --no-install-recommends \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
