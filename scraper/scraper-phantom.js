@@ -15,7 +15,7 @@ RenderUrlsToFile = function(urls, callbackPerUrl, callbackFinal) {
     webpage = require("webpage");
     page = null;
     getFilename = function(url) {
-        return urlIndex + "-" + url + ".png";
+        return urlIndex + "-" + url.replace("http://", "") + ".png";
     };
     next = function(status, url, file) {
         page.close();
@@ -25,7 +25,7 @@ RenderUrlsToFile = function(urls, callbackPerUrl, callbackFinal) {
     retrieve = function() {
         var url;
         if (urls.length > 0) {
-            url = urls.shift();
+            url = "http://" + urls.shift();
             urlIndex++;
             page = webpage.create();
             page.viewportSize = {
@@ -41,7 +41,7 @@ RenderUrlsToFile = function(urls, callbackPerUrl, callbackFinal) {
               var time = new Date().toLocaleTimeString();
               console.log(time + " Timeout connecting to: " + url);
             };
-            return page.open("http://" + url, function(status) {
+            return page.open(url, function(status) {
                 var file;
                 file = getFilename(url);
                 if (status === "success") {
