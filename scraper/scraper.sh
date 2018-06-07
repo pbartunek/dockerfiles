@@ -5,7 +5,7 @@ logFile=scraper.log
 reportFile=report.html
 
 # capture screenshots
-phantomjs --proxy=$PROXY /data/scraper-phantom.js "$@" >> $logFile
+phantomjs --proxy=$PROXY /data/scraper-phantom.js $@ >> $logFile
 
 # generate HTML report for successful
 # based on log file from phantomjs script
@@ -23,12 +23,12 @@ cat <<-HTML
   <body>
   <table>
 HTML
-for line in "$(cat $logFile | grep Rendered | cut -d" " -f5,8)"; do
-  if [ -z $line ]; then
+cat $logFile | grep Rendered | cut -d" " -f5,8 | while read line; do
+  if [ -z "$line" ]; then
     continue;
   fi
   IFS=", " read url img <<< $line
-  cat <<-HTML
+cat <<-HTML
     <tr>
       <td><a href="${url}" target="_blank">${url}</a></td>
       <td><img src="./${img}" /></td>
