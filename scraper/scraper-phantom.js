@@ -27,23 +27,21 @@ RenderUrlsToFile = function(urls, callbackPerUrl, callbackFinal) {
     if (urls.length > 0) {
       url = urls.shift();
       urlIndex++;
-      if (! url.startsWith("http")) {
-        url = "http://" + url
-      }
-        page = webpage.create();
-        page.viewportSize = {
-          width: 1024,
-          height: 768
-        };
-        var time = new Date().toLocaleTimeString();
-        console.log(time + " Rendering: " + url);
+      url = "http://" + url
+      page = webpage.create();
+      page.viewportSize = {
+        width: 1024,
+        height: 768
+      };
+      var time = new Date().toLocaleTimeString();
+      console.log(time + " Rendering: " + url);
 
-        page.settings.userAgent = "Phantom.js";
-        page.settings.resourceTimeout = 10000;
-        page.onResourceTimeout = function(e) {
-          var time = new Date().toLocaleTimeString();
-          console.log(time + " Timeout connecting to: " + url);
-        };
+      page.settings.userAgent = "Phantom.js";
+      page.settings.resourceTimeout = 10000;
+      page.onResourceTimeout = function(e) {
+        var time = new Date().toLocaleTimeString();
+        console.log(time + " Timeout connecting to: " + url);
+      };
       return page.open(url, function(status) {
         var file;
         file = getFilename(url);
