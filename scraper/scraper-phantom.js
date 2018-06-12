@@ -27,7 +27,9 @@ RenderUrlsToFile = function(urls, callbackPerUrl, callbackFinal) {
     if (urls.length > 0) {
       url = urls.shift();
       urlIndex++;
-      url = "http://" + url
+      if (url.indexOf("http") == -1) {
+        url = "http://" + url
+      }
       page = webpage.create();
       page.viewportSize = {
         width: 1024,

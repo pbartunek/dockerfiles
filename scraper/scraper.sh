@@ -9,6 +9,10 @@ phantomjs --proxy=$PROXY /data/scraper-phantom.js $@ >> $logFile
 
 # generate HTML report for successful
 # based on log file from phantomjs script
+
+files=$(cat $logFile | grep Rendered | wc -l)
+
+if [[ "$files" -gt "0" ]]; then
 exec 1<>$reportFile
 cat <<-HTML
 <html>
@@ -40,3 +44,4 @@ cat <<-HTML
   </body>
 </html>
 HTML
+fi
