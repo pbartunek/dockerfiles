@@ -1,5 +1,6 @@
 FROM kalilinux/kali-linux-docker
 
+# tools from kali repo
 RUN apt-get update && \
   apt-get -y dist-upgrade && \
   apt-get -y install \
@@ -42,8 +43,9 @@ RUN apt-get update && \
   openjdk-8-jdk \
   --no-install-recommends \
   && apt-get clean \
-  && rm -rf /var/lib/apt/lists/* \
-  && wpscan --update \
+  && rm -rf /var/lib/apt/lists/*
+# additional tools
+RUN  wpscan --update \
   && cd /opt \
   && wget https://github.com/n00py/WPForce/archive/v.1.0.0.tar.gz \
   && tar xzf v.1.0.0.tar.gz \
@@ -54,6 +56,7 @@ RUN apt-get update && \
   && cd /opt && git clone https://github.com/CoreSecurity/impacket.git && cd impacket \
   && pip install .
 
+# config files
 COPY proxychains.conf /etc/proxychains.conf
 
 ENTRYPOINT ["/bin/bash"]
