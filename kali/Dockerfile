@@ -54,7 +54,8 @@ RUN  wpscan --update \
   && wget https://github.com/caffix/amass/releases/download/v1.5.1/amass_1.5.1_linux_amd64.zip \
   && cd /opt && git clone https://github.com/IOActive/jdwp-shellifier.git \
   && cd /opt && git clone https://github.com/CoreSecurity/impacket.git && cd impacket \
-  && pip install .
+  && pip install . \
+  && cd /opt && wget https://github.com/matthiaskaiser/jmet/releases/download/0.1.0/jmet-0.1.0-all.jar
 
 # config files
 COPY proxychains.conf /etc/proxychains.conf
