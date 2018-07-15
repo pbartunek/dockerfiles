@@ -1,13 +1,14 @@
 #!/bin/sh
 
 reportFile=report.html
+logFile=scraper.log
+totalUrls=$#
 
 for site in $@; do
-  cd /workdir
-  /usr/bin/chromium-browser --headless --disable-gpu --window-size=1280,800 --screenshot="$(basename $site).png" $site
+  /usr/bin/chromium-browser --headless --disable-gpu --window-size=1280,800 --screenshot="$(basename $site).png" $site 2>> $logFile
 done
 
-files=$(ls *.png | wc -l)
+files=$(cat $logFile | grep "Written to" | wc -l)
 
 if [[ "$files" -gt "0" ]]; then
 exec 1<>$reportFile
@@ -24,12 +25,12 @@ cat <<-HTML
   <body>
   <table>
 HTML
-ls *.png | while read file; do
-domain=$(basename $file .png)
+cat $logFile | grep "Written to" | cut -d" " -f5 | sed 's/\.$//' | while read filename; do
+domain=$(basename $filename .png)
 cat <<-HTML
     <tr>
       <td><a href="http://${domain}" target="_blank">${domain}</a></td>
-      <td><img src="./${file}" /></td>
+      <td><img src="./${filename}" /></td>
     </tr>
 HTML
 done
