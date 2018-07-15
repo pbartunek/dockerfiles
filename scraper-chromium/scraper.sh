@@ -2,10 +2,16 @@
 
 reportFile=report.html
 logFile=scraper.log
-totalUrls=$#
+total=$#
+current=1
 
-for site in $@; do
-  /usr/bin/chromium-browser --headless --disable-gpu --window-size=1280,800 --screenshot="$(basename $site).png" $site 2>> $logFile
+for url in $@; do
+  echo "Rendering ${current} of ${total}" >> $logFile
+  if [[ ! $url == http* ]]; then
+    url="http://${url}"
+  fi
+  /usr/bin/chromium-browser --headless --disable-gpu --window-size=1280,800 --screenshot="$(basename $url).png" $url 2>> $logFile
+  let current++
 done
 
 files=$(cat $logFile | grep "Written to" | wc -l)

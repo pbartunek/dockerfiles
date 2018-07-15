@@ -7,7 +7,7 @@ reportFile=report.html
 # capture screenshots
 phantomjs --proxy=$PROXY /data/scraper-phantom.js $@ >> $logFile
 
-# generate HTML report for successful
+# generate HTML report for successful URLs
 # based on log file from phantomjs script
 
 files=$(cat $logFile | grep Rendered | wc -l)
