@@ -59,6 +59,7 @@ RUN  wpscan --update \
 
 # config files
 COPY proxychains.conf /etc/proxychains.conf
+COPY screenrc /root/.screenrc
 
-ENTRYPOINT ["/bin/bash"]
+ENTRYPOINT ["/usr/bin/zsh"]
 WORKDIR "/data"
