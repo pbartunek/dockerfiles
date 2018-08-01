@@ -1,1 +1,1 @@
-alias msfconsole="msfconsole -q -r ~/.msfrc"
+alias msfconsole="msfconsole -q"

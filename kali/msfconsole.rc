@@ -1,1 +1,2 @@
 spool /data/msfconsole.log
+setg LPORT 8090
