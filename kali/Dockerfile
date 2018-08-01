@@ -63,6 +63,9 @@ RUN mkdir -p /root/.msf4
 # config files
 COPY proxychains.conf /etc/proxychains.conf
 COPY screenrc /root/.screenrc
+COPY msfrc /root/.msfrc
+COPY aliases /root/.aliases
+COPY zshrc /root/.zshrc
 
 ENTRYPOINT ["/usr/bin/zsh"]
 WORKDIR "/data"
