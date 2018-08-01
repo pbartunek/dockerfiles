@@ -57,6 +57,9 @@ RUN  wpscan --update \
   && pip install . \
   && cd /opt && wget https://github.com/matthiaskaiser/jmet/releases/download/0.1.0/jmet-0.1.0-all.jar
 
+# make all directories
+RUN mkdir -p /root/.msf4
+
 # config files
 COPY proxychains.conf /etc/proxychains.conf
 COPY screenrc /root/.screenrc
