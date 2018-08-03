@@ -41,6 +41,7 @@ RUN apt-get update && \
   unzip \
   vim \
   openjdk-8-jdk \
+  python-requests \
   --no-install-recommends \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
