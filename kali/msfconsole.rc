@@ -1,3 +1,4 @@
 spool /data/msfconsole.log
 setg LPORT 8090
 setg LHOST 0.0.0.0
+setg ExitOnSession false
