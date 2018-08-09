@@ -72,5 +72,5 @@ COPY zshrc /root/.zshrc
 COPY aliases /root/.aliases
 COPY msfconsole.rc /root/.msf4
 
-ENTRYPOINT ["/usr/bin/zsh"]
+ENTRYPOINT ["/usr/bin/zsh", "-c", "screen && exit"]
 WORKDIR "/data"
