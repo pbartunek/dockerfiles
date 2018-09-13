@@ -63,7 +63,7 @@ RUN  wpscan --update \
   && pip install ldapdomaindump
 
 # make all directories
-RUN mkdir -p /root/.msf4
+RUN mkdir -p /root/.msf4 /root/.ssh
 
 # config files
 COPY proxychains.conf /etc/proxychains.conf
@@ -71,6 +71,8 @@ COPY screenrc /root/.screenrc
 COPY zshrc /root/.zshrc
 COPY aliases /root/.aliases
 COPY msfconsole.rc /root/.msf4
+
+RUN echo "IPQoS lowdelay" > /root/.ssh/config
 
 ENTRYPOINT ["/usr/bin/zsh", "-c", "screen && exit"]
 WORKDIR "/data"
