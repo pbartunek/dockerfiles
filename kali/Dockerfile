@@ -14,6 +14,7 @@ RUN apt-get update && \
   metasploit-framework \
   netcat-traditional \
   socat \
+  ncat \
   telnet \
   tftp \
   whois \
