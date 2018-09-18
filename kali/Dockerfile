@@ -44,6 +44,7 @@ RUN apt-get update && \
   openjdk-8-jdk \
   python-requests \
   ipcalc \
+  wordlists \
   --no-install-recommends \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
