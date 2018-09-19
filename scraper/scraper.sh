@@ -34,7 +34,7 @@ cat $logFile | grep Rendered | cut -d" " -f5,8 | while read line; do
   IFS=", " read url img <<< $line
 cat <<-HTML
     <tr>
-      <td><a href="${url}" target="_blank">${url}</a></td>
+      <td width="400px"><a href="${url}" target="_blank">${url}</a></td>
       <td><img src="./${img}" /></td>
     </tr>
 HTML
