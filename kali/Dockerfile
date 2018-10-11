@@ -45,6 +45,7 @@ RUN apt-get update && \
   python-requests \
   ipcalc \
   wordlists \
+  whatweb \ 
   --no-install-recommends \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
