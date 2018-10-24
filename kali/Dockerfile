@@ -46,6 +46,9 @@ RUN apt-get update && \
   ipcalc \
   wordlists \
   whatweb \ 
+  onesixtyone \
+  snmp \
+  snmpcheck \
   --no-install-recommends \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
