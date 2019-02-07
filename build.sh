@@ -3,19 +3,20 @@
 function build() {
   local image=$1
   local dir=$2
+  local cleanup_dir=$2
 
   if [ -f "$dir/build.sh" ]; then
     echo "building image"
     cd $dir
-    ./build.sh
+    . ./build.sh
     cd ..
   fi
 
   docker build --rm --force-rm -t $image $dir;
 
-  if [ -f "$dir/cleanup.sh" ]; then
+  if [ -f "$cleanup_dir/cleanup.sh" ]; then
     echo "cleaning up"
-    cd $dir
+    cd $cleanup_dir
     ./cleanup.sh
     cd ..
   fi
