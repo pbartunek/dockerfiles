@@ -50,6 +50,8 @@ RUN apt-get update && \
   snmp \
   snmpcheck \
   --no-install-recommends \
+  crackmapexec \
+  file \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 # additional tools
