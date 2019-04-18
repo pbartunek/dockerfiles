@@ -60,11 +60,7 @@ RUN cd /tmp \
   && wget -q https://github.com/caffix/amass/releases/download/v1.5.1/amass_1.5.1_linux_amd64.zip \
   && cd /opt && git clone https://github.com/IOActive/jdwp-shellifier.git \
   && cd /opt && git clone https://github.com/CoreSecurity/impacket.git && cd impacket \
-  && pip install . \
-RUN cd /opt && \
-  git clone https://github.com/byt3bl33d3r/SILENTTRINITY && \
-  cd SILENTTRINITY/Server && \
-  python3.7 -m pip install -r requirements.txt \
+  && pip install /opt/impacket
 RUN cd /opt && wget -q https://github.com/matthiaskaiser/jmet/releases/download/0.1.0/jmet-0.1.0-all.jar \
   && wget -q https://jitpack.io/com/github/frohoff/ysoserial/master-SNAPSHOT/ysoserial-master-SNAPSHOT.jar
 RUN pip install ldap3 dnspython ldapdomaindump
