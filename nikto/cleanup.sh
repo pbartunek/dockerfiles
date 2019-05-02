@@ -1,3 +1,4 @@
 #!/bin/bash
 
-rm Dockerfile
+cd ..
+rm -rf nikto
