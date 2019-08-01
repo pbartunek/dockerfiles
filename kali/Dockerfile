@@ -64,7 +64,8 @@ RUN cd /tmp \
   && cd /opt && git clone https://github.com/CoreSecurity/impacket.git && cd impacket \
   && pip install /opt/impacket
 RUN cd /opt && wget -q https://github.com/matthiaskaiser/jmet/releases/download/0.1.0/jmet-0.1.0-all.jar \
-  && wget -q https://jitpack.io/com/github/frohoff/ysoserial/master-SNAPSHOT/ysoserial-master-SNAPSHOT.jar
+  && wget -q https://jitpack.io/com/github/frohoff/ysoserial/master-SNAPSHOT/ysoserial-master-SNAPSHOT.jar \
+  && wget -q https://github.com/NickstaDB/BaRMIe/releases/download/v1.01/BaRMIe_v1.01.jar
 RUN pip install ldap3 dnspython ldapdomaindump
 
 # make all directories
