@@ -67,6 +67,9 @@ RUN cd /opt && wget -q https://github.com/matthiaskaiser/jmet/releases/download/
   && wget -q https://jitpack.io/com/github/frohoff/ysoserial/master-SNAPSHOT/ysoserial-master-SNAPSHOT.jar \
   && wget -q https://github.com/NickstaDB/BaRMIe/releases/download/v1.01/BaRMIe_v1.01.jar
 RUN pip install ldap3 dnspython ldapdomaindump
+RUN cd /opt && wget -q https://github.com/michenriksen/aquatone/releases/download/v1.7.0/aquatone_linux_amd64_1.7.0.zip \
+  && unzip aquatone_linux_amd64_1.7.0.zip \
+  && mv aquatone /bin/ && rm aquatone_linux_amd64_1.7.0.zip README.md LICENSE.txt
 
 # make all directories
 RUN mkdir -p /root/.msf4 /root/.ssh
