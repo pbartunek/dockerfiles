@@ -56,7 +56,9 @@ RUN apt-get update && \
   python3.7-dev \
   python3-pip \
   krb5-user \
-  mingw-w64
+  mingw-w64 \
+  nfs-commons
+
 # additional tools
 RUN cd /tmp \
   && wget -q https://github.com/caffix/amass/releases/download/v1.5.1/amass_1.5.1_linux_amd64.zip \
