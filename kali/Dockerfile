@@ -57,7 +57,8 @@ RUN apt-get update && \
   python3-pip \
   krb5-user \
   mingw-w64 \
-  nfs-common
+  nfs-common \
+  winexe 
 
 # additional tools
 RUN cd /tmp \
