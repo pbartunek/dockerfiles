@@ -58,7 +58,8 @@ RUN apt-get update && \
   krb5-user \
   mingw-w64 \
   nfs-common \
-  winexe 
+  winexe \
+  p0f
 
 # additional tools
 RUN cd /tmp \
