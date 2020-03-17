@@ -3,3 +3,11 @@ hardstatus alwayslastline
 startup_message off 
 hardstatus string '%{wk}%?%-Lw%?%{=b kR}(%{W}%n %t%?(%u)%?%{=b kR})%{= w}%?%+Lw%?%? %{g}]%{W}'
 termcapinfo xterm* ti@:te@
+
+altscreen on
+
+logfile screen.log
+logfile flush 1
+logtstamp on
+logtstamp after 5
+deflog on
