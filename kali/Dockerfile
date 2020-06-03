@@ -43,7 +43,6 @@ RUN apt-get update && \
   unzip \
   vim \
   openjdk-8-jdk \
-  python-requests \
   ipcalc \
   wordlists \
   whatweb \ 

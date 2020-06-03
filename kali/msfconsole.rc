@@ -2,3 +2,7 @@ spool /data/msfconsole.log
 setg LPORT 8090
 setg LHOST 0.0.0.0
 setg ExitOnSession false
+setg MeterpreterUserAgent "Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0"
+setg MeterpreterServerName "Microsoft-IIS/8.0"
+
+alias handler "use exploit/multi/handler"
