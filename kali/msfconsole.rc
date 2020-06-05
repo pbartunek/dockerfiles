@@ -5,4 +5,5 @@ setg ExitOnSession false
 setg MeterpreterUserAgent "Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0"
 setg MeterpreterServerName "Microsoft-IIS/8.0"
 
+load alias
 alias handler "use exploit/multi/handler"
