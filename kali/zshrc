@@ -14,3 +14,7 @@ setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording en
 setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
 
 source ~/.aliases
+if [[ ! -a $HISTFILE ]]; then
+  touch $HISTFILE;
+fi
+chmod o+r $HISTFILE
